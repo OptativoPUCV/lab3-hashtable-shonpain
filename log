@@ -176,3 +176,18 @@ hashmap.c:61:20: error: ‘Pair’ has no member named ‘next’
       |                    ^~
 Compilation failed
 8bdd7bc
+Thu 07 Sep 2023 11:58:51 PM UTC: 
+ hashmap.c | 38 +++++++++++++++++++++++---------------
+ 1 file changed, 23 insertions(+), 15 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:60:25: error: ‘original_position’ undeclared (first use in this function)
+   60 |         if (position == original_position) {
+      |                         ^~~~~~~~~~~~~~~~~
+hashmap.c:60:25: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:45:19: error: unused variable ‘orPosition’ [-Werror=unused-variable]
+   45 |     unsigned long orPosition = position;
+      |                   ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+f9634af

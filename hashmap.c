@@ -42,26 +42,34 @@ int is_equal(void* key1, void* key2){
 void insertMap(HashMap * map, char * key, void * value) {
     unsigned long position = hash(key,map->capacity);
     if (map->buckets[position] != NULL && is_equal(map->buckets[position]->key, key))return;
-    
-    Pair* newElem = malloc(sizeof(HashMap));
+    unsigned long orPosition = position;
 
-    if (map->buckets[position] == NULL) {
-        // La posición está vacía, asigna el nuevo par
-        map->size++;
-        map->buckets[position] = newElem;
-    } else {
-        // La posición está ocupada, maneja las colisiones (encadenamiento)
-        Pair *current = map->buckets[position];
-        while (current->next != NULL && !is_equal(current->key, key)) {
-            current = current->next;
+        // Avanzar hasta una casilla disponible
+    while (map->buckets[position] != NULL && (map->buckets[position]->key != NULL)) {
+        // Verificar si la clave ya existe en la casilla actual
+        if (is_equal(map->buckets[position]->key, key)) {
+            // La clave ya existe en el mapa, puedes manejarla de acuerdo a tus necesidades
+            printf("La clave '%s' ya existe en el mapa.\n", key);
+            return;
         }
+        
+        // Avanzar al siguiente índice de forma circular
+        position = (position + 1) % map->capacity;
 
-        if (!is_equal(current->key, key)) {
-            // La clave no existe en la lista de colisiones, agrega el nuevo par al final
-            current->next = newElem;
-            map->size++;
+        // Si volvemos al índice original, significa que no hay casillas disponibles
+        if (position == original_position) {
+            printf("No hay casillas disponibles para insertar '%s'.\n", key);
+            return;
         }
     }
+    
+    Pair* nuevoElemento = malloc(sizeof(HashMap));
+    map->buckets[position] = nuevoElemento;
+    nuevoElemento->value = value;
+    nuevoElemento->key = key;
+    map->current = position;
+    map->size++;
+    
 }
 
 void enlarge(HashMap * map) {
