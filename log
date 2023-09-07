@@ -85,3 +85,9 @@ hashmap.c:48:32: error: assignment to ‘Pair *’ from incompatible pointer typ
 cc1: all warnings being treated as errors
 Compilation failed
 8b7cb64
+Thu 07 Sep 2023 07:46:15 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  1|5
+total_score: 10/70
+62bea44
