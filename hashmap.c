@@ -41,14 +41,27 @@ int is_equal(void* key1, void* key2){
 
 void insertMap(HashMap * map, char * key, void * value) {
     unsigned long position = hash(key,map->capacity);
-    if (map->buckets[position] == NULL || map->buckets[position]->key == NULL){
-        Pair* newElem = malloc(sizeof(HashMap));
-        map->size++;
-        newElem->value = value;
-        newElem->key = key;
-        map->buckets[position] = newElem;
+
+    // Verificar si la posición está ocupada o si la clave ya existe en el mapa
+    if (map->buckets[position] != NULL && is_equal(map->buckets[position]->key, key)) {
+        // La clave ya existe en el mapa, puedes manejarla de acuerdo a tus necesidades
+        printf("La clave '%s' ya existe en el mapa.\n", key);
+        return;
     }
-    
+
+    // Crear un nuevo par clave-valor
+    Pair *newElem = createPair(key, value);
+
+    // Verificar si la posición está ocupada
+    if (map->buckets[position] == NULL) {
+        // La posición está vacía, asigna el nuevo par
+        map->size++;
+        map->buckets[position] = newElem;
+    } else {
+        // La posición está ocupada, maneja las colisiones (puedes usar encadenamiento)
+        newElem->next = map->buckets[position]->next;
+        map->buckets[position]->next = newElem;
+    }
 }
 
 void enlarge(HashMap * map) {
