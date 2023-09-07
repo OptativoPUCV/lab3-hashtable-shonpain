@@ -50,6 +50,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         newElem->value = value;
         newElem->key = key;
         map->buckets[position] = newElem;
+    }
     else{
         newElem->next = map->buckets[position]->next;
         map->buckets[position]->next = newElem;
