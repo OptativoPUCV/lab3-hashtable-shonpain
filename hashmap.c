@@ -57,7 +57,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         position = (position + 1) % map->capacity;
 
         // Si volvemos al índice original, significa que no hay casillas disponibles
-        if (position == original_position) {
+        if (position == orPosition) {
             printf("No hay casillas disponibles para insertar '%s'.\n", key);
             return;
         }

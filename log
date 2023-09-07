@@ -191,3 +191,9 @@ hashmap.c:45:19: error: unused variable ‘orPosition’ [-Werror=unused-variabl
 cc1: all warnings being treated as errors
 Compilation failed
 f9634af
+Thu 07 Sep 2023 11:59:12 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  5|4
+total_score: 30/70
+1c299c1
