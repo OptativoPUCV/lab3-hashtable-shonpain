@@ -39,3 +39,17 @@ hashmap.c:43:19: error: unused variable ‘index’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 b02d803
+Thu 07 Sep 2023 07:41:57 PM UTC: 
+ hashmap.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:44:71: error: comparison between pointer and integer [-Werror]
+   44 |     if (map->buckets[position] == NULL || map->buckets[position]->key == -1){
+      |                                                                       ^~
+hashmap.c:45:15: error: unused variable ‘newPair’ [-Werror=unused-variable]
+   45 |         Pair *newPair = createPair(key,value);
+      |               ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+6522f00
