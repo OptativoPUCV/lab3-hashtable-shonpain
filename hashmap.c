@@ -57,7 +57,7 @@ HashMap * createMap(long capacity) {// Crear mapa
     
     map->size = 0;
     map->capacity = capacity;
-    map->buckets = (Node **)malloc(sizeof(Node *) * capacity);
+    map->buckets = (Pair **)malloc(sizeof(Pair *) * capacity);
 
     if (map->buckets == NULL) {
         // Manejo de errores si no se puede asignar memoria
