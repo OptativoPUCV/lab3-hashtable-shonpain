@@ -2,3 +2,17 @@ Thu 07 Sep 2023 06:57:48 PM UTC:
  tests:  0|6
 total_score: 0/70
 5296214
+Thu 07 Sep 2023 07:12:44 PM UTC: 
+ hashmap.c | 22 ++++++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:60:21: error: ‘Node’ undeclared (first use in this function)
+   60 |     map->buckets = (Node **)malloc(sizeof(Node *) * capacity);
+      |                     ^~~~
+hashmap.c:60:21: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:60:28: error: expected expression before ‘)’ token
+   60 |     map->buckets = (Node **)malloc(sizeof(Node *) * capacity);
+      |                            ^
+Compilation failed
+d2227ce
