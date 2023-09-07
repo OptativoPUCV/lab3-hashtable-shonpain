@@ -53,3 +53,14 @@ hashmap.c:45:15: error: unused variable ‘newPair’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 6522f00
+Thu 07 Sep 2023 07:42:08 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:45:15: error: unused variable ‘newPair’ [-Werror=unused-variable]
+   45 |         Pair *newPair = createPair(key,value);
+      |               ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+c9c564e
