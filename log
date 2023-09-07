@@ -64,3 +64,24 @@ hashmap.c:45:15: error: unused variable ‘newPair’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 c9c564e
+Thu 07 Sep 2023 07:45:32 PM UTC: 
+ hashmap.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:46:16: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘data’
+   46 |         newElem->data = data;
+      |                ^~
+hashmap.c:46:25: error: ‘data’ undeclared (first use in this function)
+   46 |         newElem->data = data;
+      |                         ^~~~
+hashmap.c:46:25: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:47:16: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘key’
+   47 |         newElem->key = key;
+      |                ^~
+hashmap.c:48:32: error: assignment to ‘Pair *’ from incompatible pointer type ‘HashMap *’ {aka ‘struct HashMap *’} [-Werror=incompatible-pointer-types]
+   48 |         map->buckets[position] = newElem;
+      |                                ^
+cc1: all warnings being treated as errors
+Compilation failed
+8b7cb64
