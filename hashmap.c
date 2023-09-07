@@ -44,19 +44,24 @@ void insertMap(HashMap * map, char * key, void * value) {
     if (map->buckets[position] != NULL && is_equal(map->buckets[position]->key, key))return;
     
     Pair* newElem = malloc(sizeof(HashMap));
-    
-    if (map->buckets[position] == NULL || map->buckets[position]->key == NULL){
+
+    if (map->buckets[position] == NULL) {
+        // La posición está vacía, asigna el nuevo par
         map->size++;
-        newElem->value = value;
-        newElem->key = key;
         map->buckets[position] = newElem;
+    } else {
+        // La posición está ocupada, maneja las colisiones (encadenamiento)
+        Pair *current = map->buckets[position];
+        while (current->next != NULL && !is_equal(current->key, key)) {
+            current = current->next;
+        }
+
+        if (!is_equal(current->key, key)) {
+            // La clave no existe en la lista de colisiones, agrega el nuevo par al final
+            current->next = newElem;
+            map->size++;
+        }
     }
-    else{
-        newElem->next = map->buckets[position]->next;
-        map->buckets[position]->next = newElem;
-    }
-    
-    
 }
 
 void enlarge(HashMap * map) {
