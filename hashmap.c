@@ -49,7 +49,6 @@ void insertMap(HashMap * map, char * key, void * value) {
         // Verificar si la clave ya existe en la casilla actual
         if (is_equal(map->buckets[position]->key, key)) {
             // La clave ya existe en el mapa, puedes manejarla de acuerdo a tus necesidades
-            printf("La clave '%s' ya existe en el mapa.\n", key);
             return;
         }
         
@@ -58,7 +57,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
         // Si volvemos al índice original, significa que no hay casillas disponibles
         if (position == orPosition) {
-            printf("No hay casillas disponibles para insertar '%s'.\n", key);
+key);
             return;
         }
     }
