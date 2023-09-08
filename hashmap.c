@@ -57,7 +57,6 @@ void insertMap(HashMap * map, char * key, void * value) {
 
         // Si volvemos al índice original, significa que no hay casillas disponibles
         if (position == orPosition) {
-key);
             return;
         }
     }
