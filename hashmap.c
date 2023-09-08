@@ -45,18 +45,10 @@ void insertMap(HashMap * map, char * key, void * value) {
 
     while (map->buckets[position] != NULL && (map->buckets[position]->key != NULL)) {
         // Verificar si la clave ya existe en la casilla actual
-        if (is_equal(map->buckets[position]->key, key)) {
-            // La clave ya existe en el mapa
-            return;
-        }
-        
+        if (is_equal(map->buckets[position]->key, key))return;
         // Avanzar al siguiente índice 
         position = (position + 1) % map->capacity;
-
-        // Si volvemos al índice original, significa que no hay casillas disponibles
-        if (position == orPosition) {
-            return;
-        }
+        if (position == orPosition)return;
     }
     
     Pair* nuevoElemento = malloc(sizeof(HashMap));
