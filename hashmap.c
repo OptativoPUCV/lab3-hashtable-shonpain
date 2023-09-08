@@ -41,18 +41,16 @@ int is_equal(void* key1, void* key2){
 
 void insertMap(HashMap * map, char * key, void * value) {
     unsigned long position = hash(key,map->capacity);
-    if (map->buckets[position] != NULL && is_equal(map->buckets[position]->key, key))return;
     unsigned long orPosition = position;
 
-        // Avanzar hasta una casilla disponible
     while (map->buckets[position] != NULL && (map->buckets[position]->key != NULL)) {
         // Verificar si la clave ya existe en la casilla actual
         if (is_equal(map->buckets[position]->key, key)) {
-            // La clave ya existe en el mapa, puedes manejarla de acuerdo a tus necesidades
+            // La clave ya existe en el mapa
             return;
         }
         
-        // Avanzar al siguiente índice de forma circular
+        // Avanzar al siguiente índice 
         position = (position + 1) % map->capacity;
 
         // Si volvemos al índice original, significa que no hay casillas disponibles
