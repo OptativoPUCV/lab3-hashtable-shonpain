@@ -95,8 +95,21 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
+    unsigned long position = hash(key, map->capacity);
+    unsigned long orPosition = position;
 
+    // Buscar la clave
+    while (map->buckets[position] != NULL) {
+        if (is_equal(map->buckets[position]->key, key)) {
+            map->current = position;
+            return map->buckets[position];
+        }
+        // Avanzar al siguiente índice 
+        position = (position + 1) % map->capacity;
+        if (position == original_position)return NULL;
+    }
 
+    // La clave no se encontró 
     return NULL;
 }
 
