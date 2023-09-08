@@ -246,3 +246,18 @@ hashmap.c:99:19: error: unused variable ‘orPosition’ [-Werror=unused-variabl
 cc1: all warnings being treated as errors
 Compilation failed
 7982d77
+Fri 08 Sep 2023 12:28:26 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:109:25: error: ‘orPositionosition’ undeclared (first use in this function)
+  109 |         if (position == orPositionosition)return NULL;
+      |                         ^~~~~~~~~~~~~~~~~
+hashmap.c:109:25: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:99:19: error: unused variable ‘orPosition’ [-Werror=unused-variable]
+   99 |     unsigned long orPosition = position;
+      |                   ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ddf0343

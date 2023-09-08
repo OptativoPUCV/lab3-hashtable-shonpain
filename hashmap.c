@@ -106,7 +106,7 @@ Pair * searchMap(HashMap * map,  char * key) {
         }
         // Avanzar al siguiente índice 
         position = (position + 1) % map->capacity;
-        if (position == original_position)return NULL;
+        if (position == orPositionosition)return NULL;
     }
 
     // La clave no se encontró 
