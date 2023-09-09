@@ -130,9 +130,12 @@ Pair * nextMap(HashMap * map) {
     while (i != map->current && (map->buckets[i] == NULL || map->buckets[i]->key == NULL)){
         i = (i + 1) % map->capacity;
     }    
+    
     if (i != map->current){
         map->current = i;
         return map->buckets[i];
     }
-    return NULL;
+    else{
+            return NULL;
+    }
 }
