@@ -273,3 +273,13 @@ Sat 09 Sep 2023 01:18:00 AM UTC:
  tests:  11|2
 total_score: 50/70
 31917a0
+Sat 09 Sep 2023 01:19:29 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:113:5: error: expected ‘;’ before ‘}’ token
+  113 |     }
+      |     ^
+Compilation failed
+fe83e8b
