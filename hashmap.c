@@ -60,10 +60,29 @@ void insertMap(HashMap * map, char * key, void * value) {
     
 }
 
-void enlarge(HashMap * map) {
-    enlarge_called = 1; //no borrar (testing purposes)
+void enlarge(HashMap *map) {
+    enlarge_called = 1; // Para propósitos de prueba
 
+    Pair **old_buckets = map->buckets;
+    map->capacity *= 2;
 
+    map->buckets = (Pair **)malloc(sizeof(Pair *) * map->capacity);
+
+    if (map->buckets == NULL)exit(EXIT_FAILURE);
+
+    for (long i = 0; i < map->capacity; i++) {
+        map->buckets[i] = NULL;
+    }
+    map->size = 0;
+
+    for (long i = 0; i < map->capacity / 2; i++) {
+        if (old_buckets[i] != NULL && old_buckets[i]->key != NULL) {
+            insertMap(map, old_buckets[i]->key, old_buckets[i]->value);
+        }
+    }
+
+    // Liberar la memoria
+    free(old_buckets);
 }
 
 
@@ -136,6 +155,5 @@ Pair * nextMap(HashMap * map) {
     }
 
     map->current = -1;
-    
     return NULL;
 }
