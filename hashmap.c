@@ -100,7 +100,6 @@ void eraseMap(HashMap * map,  char * key) {
 Pair * searchMap(HashMap * map,  char * key) {   
     unsigned long position = hash(key, map->capacity);
     unsigned long orPosition = position;
-
     // Buscar la clave
     while (map->buckets[position] != NULL) {
         if (is_equal(map->buckets[position]->key, key)) {
@@ -111,13 +110,11 @@ Pair * searchMap(HashMap * map,  char * key) {
         position = (position + 1) % map->capacity;
         if (position == orPosition)return NULL;
     }
-
     // La clave no se encontró 
     return NULL;
 }
 
-Pair * firstMap(HashMap * map) {
-
+Pair * firstMap(HashMap * map) 
     return NULL;
 }
 
